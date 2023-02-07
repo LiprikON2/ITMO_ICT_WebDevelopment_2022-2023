@@ -50,6 +50,8 @@ Swagger API Docs
 - djoser
 - djangorestframework_simplejwt
 - drf_yasg
+
+docs
 - mkdocs
 - mkdocs-material
 - mkdocs-jupyter
