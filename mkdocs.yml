@@ -7,8 +7,9 @@ theme:
         accent: deep purple
     features:
         - content.code.copy
+repo_url: https://github.com/LiprikON2/ITMO_ICT_WebDevelopment_2022-2023/tree/Lr3
 nav:
-    - Home: home.md
+    - home.md
     - "Laboratory Work 1": lab1/index.ipynb
     - "Laboratory Work 2":
           - Overview: lab2/index.md
