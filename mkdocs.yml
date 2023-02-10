@@ -13,9 +13,11 @@ nav:
     - "Laboratory Work 2":
           - Overview: lab2/index.md
           - "Practical Work": lab2/practical.md
+          - "Leetcode Tasks": lab2/leetcode.md
     - "Laboratory Work 3":
           - Overview: lab3/index.md
           - "Practical Work": lab3/practical.md
+          - "Leetcode Tasks": lab3/leetcode.md
           - API:
                 - "Models API": lab3/api/models.md
                 - "Custom API": lab3/api/custom.md
