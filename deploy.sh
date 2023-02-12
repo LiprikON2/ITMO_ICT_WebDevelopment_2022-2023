@@ -3,4 +3,4 @@
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P ) # https://stackoverflow.com/a/24112741
 cd "$parent_path"
 
-source ".docs-venv/Scripts/activate" && mkdocs gh-deploy && git commit -am "mkdocs gh-deploy" && git push
+source ".docs-venv/Scripts/activate" && mkdocs gh-deploy && git add -A && git commit -am "mkdocs gh-deploy" && git push
