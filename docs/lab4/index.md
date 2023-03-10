@@ -1,8 +1,7 @@
 # Laboratory work 4
 > Рейнгеверц В.А. - K33401
 
-## Lab work part
-
+## Frontend
 
 ### Desktop
 Главная страница
@@ -53,7 +52,7 @@
 ![](https://i.imgur.com/L135jtQ.png)
 
 
-### Django backend + React frontend integration
+### Django backend + React frontend интеграция
 
 ![](https://i.imgur.com/xyXEBPv.png)
 
@@ -169,17 +168,17 @@ root.render(
 );
 ```
 
-### Общение backend'a с frontend'ом по REST API
+### Общение frontend'a с backend'ом по REST API
 
-Для коммуникации по REST API были сделаны две функции - `fetchFromBackendApi` и `pushToBackendApi`
+Для коммуникации по REST API были созданы две функции - `fetchFromBackendApi` и `pushToBackendApi`.
 
 Функция `fetchFromBackendApi` отправляет GET запросы на бекэнд прилагая csrf токен и, опционально, djoser токен.
 
-Функция `pushToBackendApi` может оправлять POST, PATCH, DELETE запросы, прилагая помимо токено еще и тело
+Функция `pushToBackendApi` может оправлять POST, PATCH, DELETE запросы, прилагая помимо токенов еще и тело запроса.
 
 
 
-`BackendAPI.js`
+`utils/BackendAPI.js`
 ```js
 import { getCookie, getToken } from "~/utils/Token";
 
@@ -240,11 +239,52 @@ export const pushToBackendApi = async (
 };
 
 // <...>
+
+export const fetchLibrariesPublic = async () =>
+    await fetchFromBackendApi(["api", "libraries-public"], true);
+
+// <...>
 ```
 
 
-Далее ответ принимается в хуках от библиотеки React Query, где, в зависимости от ответа, данные обрабатываются и передаются в state
+Далее ответ принимается в хуках от библиотеки React Query (он был вынес в отдельный, кастомный хук), где, в зависимости от ответа, данные обрабатываются и возвращаются как state.
 
+`hooks/index.js`
+```js
+import { useQuery } from "@tanstack/react-query";
+
+import backendApi from "~/utils/BackendApi";
+
+export const useGetLibrariesPublic = () => {
+    return useQuery(["libraries"], backendApi.fetchLibrariesPublic, {
+        select: (data) => {
+            const libraries = data.json["Library"];
+            return libraries;
+        },
+    });
+};
+
+// <...>
+```
+
+`core/App.js`
+```js
+import React, { useState } from "react";
+
+// <...>
+
+import { useGetLibrariesPublic } from "~/hooks";
+
+const App = (/* <...> */) => {
+
+    // <...>
+    const { data: libraries, status: librariesStatus } = useGetLibrariesPublic();
+    // <...>
+
+    return /* <...> */
+}
+export default App
+```
 
 #### Reference
 - [Getting Started | Vite](https://vitejs.dev/guide/#index-html-and-project-root)
@@ -293,16 +333,6 @@ E.g.
 bash run.sh pip install pandas
 ```
 
-
-
-### Screenshots
-
-ER Diagram
-![](https://i.imgur.com/X3vlFdG.png)
-
-Backend urls
-![](https://i.imgur.com/nEVRsl4.png)
-
 ### Требования к представлениям
 Пользователь может:
 
@@ -317,6 +347,15 @@ Nice-to-haves:
 - Личный кабинет с книгами и фильтром по дате 
 - Представление для библиотекаря
 
+
+
+## Backend
+
+ER Diagram
+![](https://i.imgur.com/X3vlFdG.png)
+
+Backend urls
+![](https://i.imgur.com/nEVRsl4.png)
 
 
 ### Description
