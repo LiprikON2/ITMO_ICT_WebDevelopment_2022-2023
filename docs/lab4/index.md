@@ -3,7 +3,143 @@
 
 ## Lab work part
 
+
+### Desktop
+![](https://i.imgur.com/PdgBMOr.png)
+
+![](https://i.imgur.com/TrtGrrn.png)
+
+![](https://i.imgur.com/dXZmSVQ.png)
+
+![](https://i.imgur.com/86ehkyw.png)
+
+![](https://i.imgur.com/PYSBVoE.png)
+
+![](https://i.imgur.com/Vw47MD0.png)
+
+### Mobile & dark/light mode
+
+![](https://i.imgur.com/3iUcDAr.png)
+
+![](https://i.imgur.com/L135jtQ.png)
+
+
 ### Django backend + React frontend integration
+
+![](https://i.imgur.com/xyXEBPv.png)
+
+`index.html`
+```jsx
+{% load static %}
+{% load env_utils %}
+{% load django_vite %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <title>Librarian</title>
+        {% comment %} https://vitejs.dev/guide/backend-integration.html {% endcomment %}
+        <script type="module">
+            import RefreshRuntime from 'http://{% get_env "host" "localhost" %}:{% get_env "frontend_port" 3000 %}/@react-refresh'
+            RefreshRuntime.injectIntoGlobalHook(window)
+            window.$RefreshReg$ = () => {}
+            window.$RefreshSig$ = () => (type) => type
+            window.__vite_plugin_react_preamble_installed__ = true
+        </script>
+        {% comment %} https://github.com/MrBin99/django-vite#template-tags {% endcomment %}
+        {% vite_hmr_client %}
+        {% vite_asset 'src/core/index.jsx' %}
+        <style type="text/css">
+            #root {
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+</html>
+```
+
+`vite.config.js`
+```js
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { resolve } from "path";
+
+const backendPort = process.env.backend_port ?? 8000;
+const host = process.env.host ?? "localhost";
+
+// https://vitejs.dev/config/
+// https://github.com/MrBin99/django-vite-example/blob/master/vite.config.js
+export default defineConfig({
+    plugins: [react()],
+    root: resolve("./static"),
+    base: "/static/",
+    server: {
+        strictPort: true,
+        port: 3000,
+        open: false,
+        watch: {
+            usePolling: true,
+            disableGlobbing: false,
+        },
+        origin: `http://${host}:${backendPort}`,
+    },
+    resolve: {
+        extensions: [".js", ".jsx", ".json"],
+        alias: {
+            "~": resolve("./static/src"),
+        },
+    },
+    build: {
+        outDir: resolve("./static/dist"),
+        assetsDir: "",
+        manifest: true,
+        emptyOutDir: true,
+        target: "es2015",
+        rollupOptions: {
+            input: {
+                main: resolve("./static/src/core/index.js"),
+            },
+            output: {
+                chunkFileNames: undefined,
+            },
+        },
+    },
+    define: {
+        backendPort: JSON.stringify(backendPort),
+    },
+});
+```
+
+`index.js`
+```js
+import "vite/modulepreload-polyfill";
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import App from "~/core/App";
+
+const queryClient = new QueryClient();
+
+const root = createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <QueryClientProvider client={queryClient}>
+            <BrowserRouter>
+                <App queryClient={queryClient} />
+            </BrowserRouter>
+        </QueryClientProvider>
+    </React.StrictMode>
+);
+```
+
 #### Reference
 - [Getting Started | Vite](https://vitejs.dev/guide/#index-html-and-project-root)
 - [Backend Integration | Vite](https://vitejs.dev/guide/backend-integration.html) 
