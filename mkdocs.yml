@@ -23,6 +23,8 @@ nav:
                 - "Custom API": lab3/api/custom.md
                 - "Report API": lab3/api/report.md
                 - "Auth API": lab3/api/auth.md
+    - "Laboratory Work 4":
+          - Overview: lab4/index.md
 markdown_extensions:
     - attr_list
     - md_in_html
