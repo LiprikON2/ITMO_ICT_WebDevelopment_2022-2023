@@ -168,6 +168,12 @@ root.render(
 );
 ```
 
+#### Reference
+- [Getting Started | Vite](https://vitejs.dev/guide/#index-html-and-project-root)
+- [Backend Integration | Vite](https://vitejs.dev/guide/backend-integration.html) 
+- [Django Vite](https://github.com/MrBin99/django-vite) 
+- [Django Vite Example](https://github.com/MrBin99/django-vite-example)
+
 ### Общение frontend'a с backend'ом по REST API
 
 Для коммуникации по REST API были созданы две функции - `fetchFromBackendApi` и `pushToBackendApi`.
@@ -286,11 +292,6 @@ const App = (/* <...> */) => {
 export default App
 ```
 
-#### Reference
-- [Getting Started | Vite](https://vitejs.dev/guide/#index-html-and-project-root)
-- [Backend Integration | Vite](https://vitejs.dev/guide/backend-integration.html) 
-- [Django Vite](https://github.com/MrBin99/django-vite) 
-- [Django Vite Example](https://github.com/MrBin99/django-vite-example)
 
 ### Running
 
