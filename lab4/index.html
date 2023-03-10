@@ -725,28 +725,42 @@
 <h2 id="lab-work-part">Lab work part</h2>
 <h3 id="desktop">Desktop</h3>
 <p>Главная страница
-<img alt="" src="https://i.imgur.com/PdgBMOr.png" />
-- Боковое меню с навигацией, авторизацией и сменой светлой/темной темы</p>
+<img alt="" src="https://i.imgur.com/PdgBMOr.png" /></p>
+<ul>
+<li>Боковое меню с навигацией, авторизацией и сменой светлой/темной темы</li>
+</ul>
 <p>Пошаговая регистрация
-<img alt="" src="https://i.imgur.com/TrtGrrn.png" />
-- Client-side &amp; server-side на каждом шагу
-- Динамически подгружаются варианты выбора для choice полей модели 
-- Динамически подгружаются варианты выбора для foreign key полей модели </p>
+<img alt="" src="https://i.imgur.com/TrtGrrn.png" /></p>
+<ul>
+<li>Client-side &amp; server-side валидация на каждом шагу</li>
+<li>Динамически подгружаются варианты выбора для choice полей модели </li>
+<li>Динамически подгружаются варианты выбора для foreign key полей модели </li>
+</ul>
 <p>Выбор библиотеки
-<img alt="" src="https://i.imgur.com/ZluRXoj.png" />
-- У каждой библиотеки свои читательские залы</p>
+<img alt="" src="https://i.imgur.com/ZluRXoj.png" /></p>
+<ul>
+<li>У каждой библиотеки свои читательские залы</li>
+</ul>
 <p>Авторизация
-<img alt="" src="https://i.imgur.com/dXZmSVQ.png" />
-- По djoser токену, хранящемся в Local Storage/Session Storage</p>
+<img alt="" src="https://i.imgur.com/dXZmSVQ.png" /></p>
+<ul>
+<li>По djoser токену, хранящемся в Local Storage/Session Storage</li>
+</ul>
 <p>Уведомления
-<img alt="" src="https://i.imgur.com/eTeD7Oe.png" />
-- Об ошибках, успешных действиях</p>
+<img alt="" src="https://i.imgur.com/eTeD7Oe.png" /></p>
+<ul>
+<li>Об ошибках, успешных действиях</li>
+</ul>
 <p>Кнопка "выйти"
-<img alt="" src="https://i.imgur.com/86ehkyw.png" />
-- Инвалидизирует djoser токен</p>
+<img alt="" src="https://i.imgur.com/86ehkyw.png" /></p>
+<ul>
+<li>Инвалидизирует djoser токен</li>
+</ul>
 <p>Читательские залы библиотеки
-<img alt="" src="https://i.imgur.com/PYSBVoE.png" />
-- Динамически подгружаются</p>
+<img alt="" src="https://i.imgur.com/PYSBVoE.png" /></p>
+<ul>
+<li>Динамически подгружаются</li>
+</ul>
 <p>Зарезервированные пользователем книги
 <img alt="" src="https://i.imgur.com/Vw47MD0.png" /></p>
 <h3 id="mobile-darklight-mode">Mobile &amp; dark/light mode</h3>
@@ -758,35 +772,35 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{% load static %}
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>{% load env_utils %}
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>{% load django_vite %}
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>&lt;!DOCTYPE html&gt;
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>&lt;html lang=&quot;en&quot;&gt;
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    &lt;head&gt;
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        &lt;meta charset=&quot;UTF-8&quot;/&gt;
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;/&gt;
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        &lt;meta name=&quot;viewport&quot;
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>              content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0&quot;/&gt;
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        &lt;title&gt;Librarian&lt;/title&gt;
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">/&gt;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">/&gt;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>              <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0&quot;</span><span class="p">/&gt;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Librarian<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        {% comment %} https://vitejs.dev/guide/backend-integration.html {% endcomment %}
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        &lt;script type=&quot;module&quot;&gt;
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>            import RefreshRuntime from &#39;http://{% get_env &quot;host&quot; &quot;localhost&quot; %}:{% get_env &quot;frontend_port&quot; 3000 %}/@react-refresh&#39;
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>            RefreshRuntime.injectIntoGlobalHook(window)
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>            window.$RefreshReg$ = () =&gt; {}
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>            window.$RefreshSig$ = () =&gt; (type) =&gt; type
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>            window.__vite_plugin_react_preamble_installed__ = true
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        &lt;/script&gt;
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;module&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">            </span><span class="k">import</span><span class="w"> </span><span class="nx">RefreshRuntime</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;http://{% get_env &quot;host&quot; &quot;localhost&quot; %}:{% get_env &quot;frontend_port&quot; 3000 %}/@react-refresh&#39;</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">            </span><span class="nx">RefreshRuntime</span><span class="p">.</span><span class="nx">injectIntoGlobalHook</span><span class="p">(</span><span class="nb">window</span><span class="p">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">            </span><span class="nb">window</span><span class="p">.</span><span class="nx">$RefreshReg$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">            </span><span class="nb">window</span><span class="p">.</span><span class="nx">$RefreshSig$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nx">type</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">type</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">            </span><span class="nb">window</span><span class="p">.</span><span class="nx">__vite_plugin_react_preamble_installed__</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        {% comment %} https://github.com/MrBin99/django-vite#template-tags {% endcomment %}
 <a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        {% vite_hmr_client %}
 <a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>        {% vite_asset &#39;src/core/index.jsx&#39; %}
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        &lt;style type=&quot;text/css&quot;&gt;
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>            #root {
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>                overflow: hidden;
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>            }
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>        &lt;/style&gt;
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    &lt;/head&gt;
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>    &lt;body&gt;
-<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>        &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
-<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>    &lt;/body&gt;
-<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>&lt;/html&gt;
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        <span class="p">&lt;</span><span class="nt">style</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">            </span><span class="p">#</span><span class="nn">root</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">                </span><span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">        </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;root&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div></p>
 <p><code>vite.config.js</code>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">defineConfig</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;vite&quot;</span><span class="p">;</span>
