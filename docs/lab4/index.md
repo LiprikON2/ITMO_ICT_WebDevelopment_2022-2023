@@ -169,6 +169,83 @@ root.render(
 );
 ```
 
+### Общение backend'a с frontend'ом по REST API
+
+Для коммуникации по REST API были сделаны две функции - `fetchFromBackendApi` и `pushToBackendApi`
+
+Функция `fetchFromBackendApi` отправляет GET запросы на бекэнд прилагая csrf токен и, опционально, djoser токен.
+
+Функция `pushToBackendApi` может оправлять POST, PATCH, DELETE запросы, прилагая помимо токено еще и тело
+
+
+
+`BackendAPI.js`
+```js
+import { getCookie, getToken } from "~/utils/Token";
+
+export const fetchFromBackendApi = async (pathSegments = [], dropToken = false) => {
+    const path = pathSegments.join("/");
+    const token = dropToken ? null : getToken();
+
+    const res = await fetch(`${window.location.origin}/${path}`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+
+            // For djago session auth
+            "X-CSRFToken": getCookie("csrftoken"),
+            // For djago token auth
+            ...(token && { Authorization: `Token ${token}` }),
+        },
+    });
+    if (!res.ok) throw new Error(res.statusText);
+    return { json: await res.json(), ok: res.ok };
+};
+
+export const pushToBackendApi = async (
+    pathSegments = [],
+    method = "POST",
+    body = {},
+    dropToken = false
+) => {
+    let path = pathSegments.join("/");
+
+    // Account for a bug in django backend's urls.py
+    if (method === "POST" && pathSegments.length <= 2) path += "/";
+
+    const token = dropToken ? null : getToken();
+
+    const res = await fetch(`${window.location.origin}/${path}`, {
+        method,
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+
+            // For djago session auth
+            "X-CSRFToken": getCookie("csrftoken"),
+            // For djago token auth
+            ...(token && { Authorization: `Token ${token}` }),
+        },
+        credentials: "same-origin",
+        body: JSON.stringify(body),
+    });
+
+    // Handle empty responses
+    if (res.status === 204) return { json: {}, ok: res.ok };
+    return { json: await res.json(), ok: res.ok };
+};
+
+// <...>
+```
+
+
+Далее ответ принимается в хуках от библиотеки React Query, где, в зависимости от ответа, данные обрабатываются и передаются в state
+
+
 #### Reference
 - [Getting Started | Vite](https://vitejs.dev/guide/#index-html-and-project-root)
 - [Backend Integration | Vite](https://vitejs.dev/guide/backend-integration.html) 
