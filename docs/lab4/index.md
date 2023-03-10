@@ -5,17 +5,39 @@
 
 
 ### Desktop
+Главная страница
 ![](https://i.imgur.com/PdgBMOr.png)
+- Боковое меню с навигацией, авторизацией и сменой светлой/темной темы
 
+Пошаговая регистрация
 ![](https://i.imgur.com/TrtGrrn.png)
+- Client-side & server-side на каждом шагу
+- Динамически подгружаются варианты выбора для choice полей модели 
+- Динамически подгружаются варианты выбора для foreign key полей модели 
 
+Выбор библиотеки
+![](https://i.imgur.com/ZluRXoj.png)
+- У каждой библиотеки свои читательские залы
+
+Авторизация
 ![](https://i.imgur.com/dXZmSVQ.png)
+- По djoser токену, хранящемся в Local Storage/Session Storage
 
+Уведомления
+![](https://i.imgur.com/eTeD7Oe.png)
+- Об ошибках, успешных действиях
+
+Кнопка "выйти"
 ![](https://i.imgur.com/86ehkyw.png)
+- Инвалидизирует djoser токен
 
+Читательские залы библиотеки
 ![](https://i.imgur.com/PYSBVoE.png)
+- Динамически подгружаются
 
+Зарезервированные пользователем книги
 ![](https://i.imgur.com/Vw47MD0.png)
+
 
 ### Mobile & dark/light mode
 
