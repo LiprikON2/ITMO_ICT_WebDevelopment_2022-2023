@@ -257,4 +257,4 @@ Nice-to-haves:
 - djangorestframework_simplejwt
 - drf_yasg
 - django-cors-headers
-
+- django-vite
