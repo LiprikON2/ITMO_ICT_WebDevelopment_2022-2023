@@ -16,6 +16,7 @@ Makes migrations, migrates, runs django backend server and react frontend server
 ```bash
 bash run.sh
 ```
+
 - Default backend port: 8000 (can be changed in `run.sh`)
 - Default frontend port: 3000 (can be changed in `run.sh`)
 
@@ -62,6 +63,7 @@ Backend urls
 
 ### Требования к представлениям
 Пользователь может:
+
 - Зайти
 - Найти книгу
 - Выбрать книгу
@@ -69,6 +71,7 @@ Backend urls
 - Сдать книгу
 
 Nice-to-haves:
+
 - Личный кабинет с книгами и фильтром по дате 
 - Представление для библиотекаря
 
