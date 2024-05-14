@@ -1,4 +1,7 @@
 # ITMO_ICT_WebDevelopment_2022-2023
+
+[![wakatime](https://wakatime.com/badge/github/LiprikON2/ITMO_ICT_WebDevelopment_2022-2023.svg)](https://wakatime.com/badge/github/LiprikON2/ITMO_ICT_WebDevelopment_2022-2023)
+
 Репозиторий для реализации дистанционного обучения по дисциплине "Web-программирование".
 
 [Учебный журнал]() по дисциплине. Тут доступна информация о сроках сдачи работ, о текущей успеваемости студентов и описаны все материалы необходимые для реализации курса.
